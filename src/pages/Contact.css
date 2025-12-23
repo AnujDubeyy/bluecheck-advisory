@@ -1,0 +1,54 @@
+.contact-page {
+    padding-top: 100px;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: var(--color-card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    margin-bottom: 60px;
+    border: 1px solid var(--color-border);
+}
+
+.contact-info-item {
+    margin-bottom: 30px;
+    color: var(--color-text);
+}
+
+.contact-info-item h4 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.contact-info-item p {
+    font-size: 1.1rem;
+}
+
+.legal-section-card {
+    border-top: 1px solid var(--color-border);
+    padding-top: 40px;
+    color: var(--color-text);
+    font-size: 1.1rem;
+    opacity: 0.9;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-block h5 {
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
