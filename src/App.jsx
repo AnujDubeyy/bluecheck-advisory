@@ -29,7 +29,6 @@ function App() {
       <Router>
         <ScrollToTop />
         <div className="app">
-          <InteractiveBackground />
           <Navbar />
           <main style={{ minHeight: 'calc(100vh - 200px)' }}> {/* Ensure footer sticks or pushes down */}
             <Routes>

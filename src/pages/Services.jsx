@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import TiltCard from '../components/TiltCard';
+
 import './Services.css';
 
 const servicesData = [
@@ -155,14 +155,25 @@ const itemVariants = {
 };
 
 const Services = () => {
+    const handleMouseMove = (e) => {
+        const x = (e.clientX / window.innerWidth) - 0.5;
+        const y = (e.clientY / window.innerHeight) - 0.5;
+
+        e.currentTarget.style.setProperty('--mouse-x', x);
+        e.currentTarget.style.setProperty('--mouse-y', y);
+        e.currentTarget.style.setProperty('--x', `${e.clientX}px`);
+        e.currentTarget.style.setProperty('--y', `${e.clientY}px`);
+    };
+
     return (
-        <div className="services-page" style={{ paddingTop: '120px', paddingBottom: '80px' }}>
+        <div className="services-modern" onMouseMove={handleMouseMove}>
             <div className="container">
                 <div className="services-hero">
                     <motion.h1
-                        initial={{ opacity: 0, y: -20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="section-title"
+                        transition={{ type: "spring", stiffness: 60, damping: 20 }}
+                        className="display-heading"
                     >
                         Our Expertise
                     </motion.h1>
@@ -181,7 +192,7 @@ const Services = () => {
                         className="service-category"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, margin: "-50px" }}
                         variants={containerVariants}
                     >
                         <h2 className="category-title">{category.category}</h2>
@@ -192,10 +203,10 @@ const Services = () => {
                                     variants={itemVariants}
                                     style={{ height: '100%' }}
                                 >
-                                    <TiltCard className="service-card">
+                                    <div className="service-card-glass">
                                         <h3>{item.title}</h3>
                                         <p>{item.desc}</p>
-                                    </TiltCard>
+                                    </div>
                                 </motion.div>
                             ))}
                         </div>
@@ -207,9 +218,9 @@ const Services = () => {
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ type: "spring", stiffness: 60, damping: 20 }}
                 >
-                    <h2 className="section-title" style={{ marginBottom: '20px', fontSize: '2rem' }}>Industries We Serve</h2>
+                    <h2 className="display-heading" style={{ fontSize: '2.5rem', marginBottom: '40px' }}>Industries We Serve</h2>
                     <div className="industries-grid">
                         {industries.map((industry, index) => (
                             <motion.div
