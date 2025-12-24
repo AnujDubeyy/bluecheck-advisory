@@ -1,54 +1,214 @@
-.contact-page {
-    padding-top: 100px;
-    text-align: center;
+/* Modern Contact Page - Matches Home Theme */
+.contact-modern {
+    overflow-x: hidden;
+    background-color: #F5F5F7;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+    padding-top: 150px;
+    padding-bottom: 80px;
+    position: relative;
+}
+
+[data-theme='dark'] .contact-modern {
+    background-color: #000000;
+}
+
+/* Mouse Spotlight */
+.contact-modern::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(900px circle at var(--x, 50%) var(--y, 50%),
+            rgba(0, 0, 0, 0.04),
+            transparent 40%);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+[data-theme='dark'] .contact-modern::before {
+    background: radial-gradient(900px circle at var(--x, 50%) var(--y, 50%),
+            rgba(29, 78, 255, 0.18),
+            transparent 40%);
 }
 
 .contact-container {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
-.contact-card {
-    background: var(--color-card-bg);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+.display-heading {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #1D1D1F;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    transition: color 0.3s ease;
+}
+
+[data-theme='dark'] .display-heading {
+    color: #F5F5F7;
+}
+
+.lead-text {
+    color: #86868B;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+[data-theme='dark'] .lead-text {
+    color: #A1A1A6;
+}
+
+/* Glass Contact Card */
+.contact-card-glass {
+    /* Liquid Glass Aesthetic */
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(30px) saturate(140%);
+    -webkit-backdrop-filter: blur(30px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+
+    border-radius: 24px;
+    padding: 60px 40px;
+    /* Increased padding */
+    margin-bottom: 40px;
     text-align: center;
-    margin-bottom: 60px;
-    border: 1px solid var(--color-border);
+    max-width: 800px;
+    /* Ensure it can go wide enough */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[data-theme='dark'] .contact-card-glass {
+    background: rgba(40, 40, 40, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .contact-info-item {
-    margin-bottom: 30px;
-    color: var(--color-text);
+    margin-bottom: 40px;
+}
+
+.contact-info-item:last-child {
+    margin-bottom: 0;
 }
 
 .contact-info-item h4 {
-    color: var(--color-primary);
-    margin-bottom: 10px;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1D1D1F;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+[data-theme='dark'] .contact-info-item h4 {
+    color: #F5F5F7;
 }
 
 .contact-info-item p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    color: #424245;
 }
 
-.legal-section-card {
-    border-top: 1px solid var(--color-border);
-    padding-top: 40px;
-    color: var(--color-text);
-    font-size: 1.1rem;
-    opacity: 0.9;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+[data-theme='dark'] .contact-info-item p {
+    color: #A1A1A6;
+}
+
+.contact-link {
+    color: #0071e3;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+[data-theme='dark'] .contact-link {
+    color: #2980b9;
+}
+
+/* Legal Section Glass */
+.legal-section-glass {
+    /* Liquid Glass Aesthetic */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+
+    border-radius: 20px;
+    padding: 32px;
+}
+
+[data-theme='dark'] .legal-section-glass {
+    background: rgba(40, 40, 40, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .legal-block h5 {
-    font-weight: 700;
-    margin-bottom: 24px;
-    color: var(--color-text);
-    font-size: 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #86868B;
+    margin-bottom: 16px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+}
+
+.legal-block p {
+    font-size: 0.95rem;
+    color: #6e6e73;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+[data-theme='dark'] .legal-block p {
+    color: #86868b;
+}
+
+/* Hero Background Blobs (Shared with Home) */
+.hero-bg-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+}
+
+.blob-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(62, 143, 250, 0.3) 0%, rgba(62, 143, 250, 0) 70%);
+    top: -10%;
+    right: -10%;
+}
+
+.blob-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(142, 68, 173, 0.2) 0%, rgba(142, 68, 173, 0) 70%);
+    bottom: 20%;
+    left: -10%;
 }

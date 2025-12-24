@@ -1,27 +1,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import './Blogs.css';
+
 const Blogs = () => {
+    const handleMouseMove = (e) => {
+        const x = (e.clientX / window.innerWidth) - 0.5;
+        const y = (e.clientY / window.innerHeight) - 0.5;
+
+        e.currentTarget.style.setProperty('--mouse-x', x);
+        e.currentTarget.style.setProperty('--mouse-y', y);
+        e.currentTarget.style.setProperty('--x', `${e.clientX}px`);
+        e.currentTarget.style.setProperty('--y', `${e.clientY}px`);
+    };
+
     return (
-        <div className="blogs-page" style={{ height: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingTop: '80px' }}>
-            <div className="container text-center">
+        <div className="blogs-modern" onMouseMove={handleMouseMove}>
+            <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    className="blogs-content-glass"
+                    initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    transition={{ type: "spring", stiffness: 60, damping: 20 }}
                 >
-                    <h1 className="section-title" style={{ marginBottom: '20px', fontSize: '3.5rem' }}>Coming Soon</h1>
-                    <p style={{ fontSize: '1.2rem', color: '#666', maxWidth: '500px', margin: '0 auto' }}>
+                    <h1 className="display-heading">Coming Soon</h1>
+                    <p className="blogs-text">
                         We are crafting insightful articles and updates on the latest in cybersecurity and compliance. Stay tuned.
                     </p>
-                </motion.div>
 
-                <motion.div
-                    style={{ marginTop: '40px' }}
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                >
-                    <div style={{ width: '40px', height: '40px', background: 'var(--color-primary)', borderRadius: '50%', margin: '0 auto' }}></div>
+                    <motion.div
+                        style={{ marginTop: '0' }}
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }}
+                        transition={{ repeat: Infinity, duration: 2 }}
+                    >
+                        <div className="pulsing-dot"></div>
+                    </motion.div>
                 </motion.div>
             </div>
         </div>
