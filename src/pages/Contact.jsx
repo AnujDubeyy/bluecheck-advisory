@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
+    const form = useRef();
+
     const handleMouseMove = (e) => {
         const x = (e.clientX / window.innerWidth) - 0.5;
         const y = (e.clientY / window.innerHeight) - 0.5;
@@ -11,6 +14,61 @@ const Contact = () => {
         e.currentTarget.style.setProperty('--mouse-y', y);
         e.currentTarget.style.setProperty('--x', `${e.clientX}px`);
         e.currentTarget.style.setProperty('--y', `${e.clientY}px`);
+    };
+
+    // Form State
+    const [formData, setFormData] = useState({
+        name: '',
+        user_email: '', // Changed to user_email to match common EmailJS templates
+        company: '',
+        message: ''
+    });
+
+    const [status, setStatus] = useState({
+        submitting: false,
+        info: { error: false, msg: null }
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        if (name === 'message' && value.length > 200) return;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const { name, user_email, company, message } = formData;
+
+        if (!name || !user_email) {
+            setStatus({
+                submitting: false,
+                info: { error: true, msg: "Please fill in all mandatory fields." }
+            });
+            return;
+        }
+
+        setStatus({ submitting: true, info: { error: false, msg: null } });
+
+        // Keys are secured in .env file
+        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+            .then((result) => {
+                setStatus({
+                    submitting: false,
+                    info: { error: false, msg: "Message sent! We will get back to you soon." }
+                });
+                setFormData({ name: '', user_email: '', company: '', message: '' });
+            }, (error) => {
+                console.error(error);
+                setStatus({
+                    submitting: false,
+                    info: { error: true, msg: "An error occurred. Please try again later." }
+                });
+            });
     };
 
     return (
@@ -28,47 +86,90 @@ const Contact = () => {
                     </p>
                 </motion.div>
 
+
+
+                {/* Contact Form Section */}
                 <motion.div
-                    className="contact-card-glass"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ type: "spring", stiffness: 60, damping: 20, delay: 0.2 }}
-                >
-                    <div className="contact-info-item">
-                        <h4>Registered Office</h4>
-                        <p>[To be inserted as per MCA records]</p>
-                    </div>
-
-                    <div className="contact-info-item">
-                        <h4>Email</h4>
-                        <p><a href="mailto:info@bluecheckadvisory.in" className="contact-link">info@bluecheckadvisory.in</a></p>
-                    </div>
-
-                    <div className="contact-info-item">
-                        <h4>Phone</h4>
-                        <p>[To be inserted]</p>
-                    </div>
-                </motion.div>
-
-                <motion.div
-                    className="legal-section-glass"
-                    initial={{ opacity: 0, y: 20 }}
+                    className="contact-form-card"
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 60, damping: 20, delay: 0.4 }}
+                    transition={{ type: "spring", stiffness: 60, damping: 20, delay: 0.3 }}
                 >
-                    <div className="legal-block">
-                        <h5>Terms & Legal</h5>
-                        <p>
-                            <strong>Disclaimer:</strong> The information provided on this website is for general informational purposes only and does not constitute legal, financial, or professional advice. Specific advice should be sought based on individual facts and circumstances.
-                        </p>
-                        <p>
-                            <strong>Confidentiality:</strong> All client information shared with BlueCheck Advisory is treated as confidential and handled with professional care.
-                        </p>
-                        <p>
-                            <strong>Governing Law:</strong> This website and all engagements of BlueCheck Advisory are governed by the laws of India.
-                        </p>
-                    </div>
+                    <h3 className="section-subheading" style={{ color: 'var(--color-primary)' }}>Send us a Message</h3>
+
+                    <form ref={form} onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label className="form-label">
+                                Name<span className="required-star">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                name="name"
+                                className="form-input"
+                                placeholder="Your Name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label className="form-label">
+                                Email<span className="required-star">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                name="user_email" // name attribute matches EmailJS variable
+                                className="form-input"
+                                placeholder="Your Email Address"
+                                value={formData.user_email}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label className="form-label">
+                                Company Name (Optional)
+                            </label>
+                            <input
+                                type="text"
+                                name="company"
+                                className="form-input"
+                                placeholder="Your Company Name"
+                                value={formData.company}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label className="form-label">
+                                Message
+                            </label>
+                            <textarea
+                                name="message"
+                                className="form-textarea"
+                                placeholder="Write your message here..."
+                                value={formData.message}
+                                onChange={handleChange}
+                                maxLength={200}
+                            />
+                            <div className="char-count">
+                                {formData.message.length} / 200
+                            </div>
+                        </div>
+
+                        {status.info.msg && (
+                            <div className={`form-message ${status.info.error ? 'error' : 'success'}`} style={{ marginBottom: '15px', color: status.info.error ? 'red' : 'green', fontWeight: '500' }}>
+                                {status.info.msg}
+                            </div>
+                        )}
+
+                        <button type="submit" className="submit-btn" disabled={status.submitting}>
+                            {status.submitting ? 'Sending...' : 'Send Message'}
+                        </button>
+                    </form>
                 </motion.div>
             </div>
         </div>

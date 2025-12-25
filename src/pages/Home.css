@@ -195,10 +195,7 @@ section {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Services Strip */
-.services-strip {
-    /* No bg color change, keep uniform scrolling area */
-}
+
 
 .section-header {
     margin-bottom: 80px;

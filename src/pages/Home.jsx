@@ -28,6 +28,12 @@ const Icons = {
     ),
     Professional: () => (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+    ),
+    Business: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+    ),
+    Focus: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
     )
 };
 
@@ -59,7 +65,7 @@ const Home = () => {
                             <span className="text-highlight">Empowers</span> Decisions
                         </h1>
                         <p className="lead-text">
-                            We combine regulatory awareness with commercial understanding to help Indian businesses, professionals, and enterprises navigate complexity with absolute confidence.
+                            We combine regulatory awareness with commercial understanding to help businesses, professionals and enterprises navigate complexity with absolute confidence.
                         </p>
                         <div className="hero-actions">
                             <Link to="/contact" className="home-btn primary">Start a Conversation</Link>
@@ -88,10 +94,9 @@ const Home = () => {
 
                     <div className="services-grid-modern">
                         {[
-                            { title: 'Business Structuring', desc: 'Defining the right structure for operational excellence.', icon: Icons.Structure },
                             { title: 'Compliance Advisory', desc: 'Seamlessly meeting all regulatory requirements.', icon: Icons.Compliance },
                             { title: 'Governance Frameworks', desc: 'Robust frameworks for effective oversight.', icon: Icons.Governance },
-                            { title: 'Operational Consulting', desc: 'Reducing risk and improving efficiency for growth.', icon: Icons.Consulting }
+                            { title: 'Risk Consulting', desc: 'Reducing risk and improving efficiency for growth.', icon: Icons.Consulting }
                         ].map((service, index) => (
                             <motion.div
                                 className="service-card-modern"
@@ -124,12 +129,12 @@ const Home = () => {
                         >
                             <span className="overline">WHY CHOOSE US</span>
                             <h2>The BlueCheck Difference</h2>
-                            <p>Our approach is grounded, transparent, and aligned with Indian business realities. We believe in clarity over jargon.</p>
+                            <p>Our approach is grounded, transparent and aligned with business realities. We believe in clarity over jargon.</p>
 
                             <ul className="modern-list">
                                 <li>
-                                    <Icons.India />
-                                    <span><strong>India Focused:</strong> Tailored for the local market.</span>
+                                    <Icons.Focus />
+                                    <span><strong>Business Focused:</strong> Tailored for businesses of any size</span>
                                 </li>
                                 <li>
                                     <Icons.Expert />

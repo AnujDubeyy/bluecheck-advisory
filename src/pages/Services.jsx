@@ -9,7 +9,7 @@ const servicesData = [
         items: [
             {
                 title: "Information Security Governance",
-                desc: "ISMS Design & Implementation (ISO 27001, NIST CSF, CIS Controls), Policy Framework, Risk Management."
+                desc: "ISMS Design & Implementation (ISO 27001, NIST CSF, CIS Controls), Policy Framework & Risk Management."
             },
             {
                 title: "Compliance Management & Certifications",
@@ -17,44 +17,44 @@ const servicesData = [
             },
             {
                 title: "Data Privacy & DPDP Compliance",
-                desc: "Data lifecycle mapping, DPIA, consent management, DPO advisory, and compliance with India's DPDP Act & GDPR."
+                desc: "Data lifecycle mapping, DPIA, consent management, DPO advisory and compliance with India's DPDP Act & GDPR."
             },
             {
                 title: "Third-Party Risk Management (TPRM)",
-                desc: "Vendor due diligence, supplier security assessments, SLA compliance, and ongoing monitoring."
+                desc: "Vendor due diligence, supplier security assessments, SLA compliance and ongoing monitoring."
             },
             {
                 title: "Regulatory Compliance Advisory",
-                desc: "Specialized compliance readiness for RBI Cybersecurity Frameworks, SEBI-CSCRF, and IRDAI frameworks."
+                desc: "Specialized compliance readiness for RBI Cybersecurity Frameworks, SEBI-CSCRF and IRDAI frameworks."
             },
             {
                 title: "AI Governance & Responsible AI",
-                desc: "Implementation of AI Governance, AI Risk Management (NIST AI RMF), and Responsible/Free-AI frameworks."
+                desc: "Implementation of AI Governance, AI Risk Management (ISO 42001, EU AI Act, NIST AI RMF, Others) and Responsible/Free-AI frameworks."
             }
         ]
     },
     {
-        category: "Cybersecurity Management & Technical Assurance",
+        category: "Regulatory & Industry-Specific Audits",
         items: [
             {
-                title: "Vulnerability Assessment & Penetration Testing (VAPT)",
-                desc: "Web, Mobile, Network, API, and Cloud security testing; exploit validation and remediation guidance."
+                title: "RBI Cybersecurity Audit",
+                desc: "Gap assessment, RBI circular mapping and compliance validation for BFSI domain."
             },
             {
-                title: "Cloud Security & Architecture Review",
-                desc: "AWS / Azure / GCP configuration review, data security, IAM, and compliance with ISO 27017/18."
+                title: "SEBI-CSCRF & Market Infra Audit",
+                desc: "Readiness and control evaluation per SEBI-CSCRF framework and market infra cybersecurity guidelines."
             },
             {
-                title: "SOC & SIEM Advisory",
-                desc: "SOC design and maturity assessment, SIEM use-case development, 24x7 monitoring framework, incident detection."
+                title: "IRDAI Cybersecurity Framework",
+                desc: "Compliance evaluation, control design and evidence validation for insurers."
             },
             {
-                title: "Threat & Risk Assessment",
-                desc: "Cyber risk quantification, MITRE ATT&CK mapping, threat modeling, and control validation."
+                title: "NBFC Cybersecurity Readiness",
+                desc: "Cyber framework alignment per RBI/NBFC guidelines and risk management directions."
             },
             {
-                title: "Cyber Threat Intelligence",
-                desc: "Threat landscape reports, brand protection, dark web monitoring, fraud pattern detection."
+                title: "CERT-In Compliance",
+                desc: "Audit readiness, incident reporting workflows and other reporting compliances."
             }
         ]
     },
@@ -63,19 +63,19 @@ const servicesData = [
         items: [
             {
                 title: "ISO 22301 BCMS Implementation",
-                desc: "Business impact analysis (BIA), continuity strategies, recovery procedures, and audit readiness."
+                desc: "Business impact analysis (BIA), continuity strategies, recovery procedures and audit readiness."
             },
             {
                 title: "ISO 27031 ICT Readiness",
-                desc: "ICT continuity planning, recovery strategy design, DR drills, and test validation."
+                desc: "ICT continuity planning, recovery strategy design, DR drills and test validation."
             },
             {
                 title: "Disaster Recovery & Crisis Response",
-                desc: "Ransomware preparedness, DR plan validation, tabletop simulations, and incident playbooks."
+                desc: "Ransomware preparedness, DR plan validation, tabletop simulations and incident playbooks."
             },
             {
                 title: "Resilience Governance",
-                desc: "Integration of BCMS, ISMS, and Incident Response into a unified governance model."
+                desc: "Integration of BCMS, ISMS and Incident Response into a unified governance model."
             }
         ]
     },
@@ -88,40 +88,40 @@ const servicesData = [
             },
             {
                 title: "Leadership & Board Cyber Governance",
-                desc: "Executive briefings, board-level risk dashboards, and governance alignment workshops."
+                desc: "Executive briefings, board-level risk dashboards and governance alignment workshops."
             },
             {
                 title: "vCISO / CISO-as-a-Service",
-                desc: "Virtual CISO engagements for compliance leadership, policy management, and audit preparation."
+                desc: "Virtual CISO engagements for compliance leadership, policy management and audit preparation."
             },
             {
                 title: "Certification Training",
-                desc: "ISO 27001 Lead Auditor, Risk Officer, and Privacy Officer (DPDP/GDPR) programs."
+                desc: "ISO 27001 Lead Auditor, Risk Officer and Privacy Officer (DPDP/GDPR) programs."
             }
         ]
     },
     {
-        category: "Regulatory & Industry-Specific Audits",
+        category: "Cybersecurity Management & Technical Assurance",
         items: [
             {
-                title: "RBI Cybersecurity Audit",
-                desc: "Gap assessment, RBI circular mapping, and compliance validation for banks and NBFCs."
+                title: "Vulnerability Assessment & Penetration Testing (VAPT)",
+                desc: "Web, Mobile, Network, API and Cloud security testing; exploit validation and remediation guidance."
             },
             {
-                title: "SEBI-CSCRF & Market Infra Audit",
-                desc: "Readiness and control evaluation per SEBI-CSCRF framework and market infra cybersecurity guidelines."
+                title: "Cloud Security & Architecture Review",
+                desc: "AWS / Azure / GCP configuration review, data security, IAM and compliance with ISO 27017/18."
             },
             {
-                title: "IRDAI Cybersecurity Framework",
-                desc: "Compliance evaluation, control design, and evidence validation for insurers."
+                title: "SOC & SIEM Advisory",
+                desc: "SOC design and maturity assessment, SIEM use-case development, 24x7 monitoring framework, incident detection."
             },
             {
-                title: "NBFC Cybersecurity Readiness",
-                desc: "Cyber framework alignment per RBI/NBFC guidelines and risk management directions."
+                title: "Threat & Risk Assessment",
+                desc: "Cyber risk quantification, MITRE ATT&CK mapping, threat modeling and control validation."
             },
             {
-                title: "CERT-In Compliance",
-                desc: "Audit readiness, incident reporting workflows, and 6-hour reporting compliance."
+                title: "Cyber Threat Intelligence",
+                desc: "Threat landscape reports, brand protection, dark web monitoring, fraud pattern detection."
             }
         ]
     }
@@ -129,10 +129,10 @@ const servicesData = [
 
 const industries = [
     "BFSI / Fintech",
-    "Insurance",
     "SaaS / Cloud Platforms",
     "Data Centers & IT Infrastructure",
-    "AI / Tech Startups"
+    "AI / Tech Startups",
+    "Others"
 ];
 
 const containerVariants = {
@@ -175,14 +175,14 @@ const Services = () => {
                         transition={{ type: "spring", stiffness: 60, damping: 20 }}
                         className="display-heading"
                     >
-                        Our Expertise
+                        Services
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2 }}
                     >
-                        Comprehensive advisory solutions designed to build resilience, ensure compliance, and drive confidence in any regulatory landscape.
+                        Comprehensive advisory solutions designed to build resilience, ensure compliance and drive confidence in any regulatory landscape or other scenarios.
                     </motion.p>
                 </div>
 

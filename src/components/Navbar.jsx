@@ -49,7 +49,7 @@ const Navbar = () => {
                     <li><Link to="/" className={isActive('/')}>Home</Link></li>
                     <li><Link to="/services" className={isActive('/services')}>Services</Link></li>
                     <li><Link to="/about" className={isActive('/about')}>About Us</Link></li>
-                    <li><Link to="/blogs" className={isActive('/blogs')}>Blogs</Link></li>
+
                     <li><Link to="/contact" className={isActive('/contact')}>Contact Us</Link></li>
                     <li><ThemeToggle /></li>
                 </ul>
@@ -64,7 +64,7 @@ const Navbar = () => {
                     <li><Link to="/" className={isActive('/')} onClick={toggleMenu}>Home</Link></li>
                     <li><Link to="/services" className={isActive('/services')} onClick={toggleMenu}>Services</Link></li>
                     <li><Link to="/about" className={isActive('/about')} onClick={toggleMenu}>About Us</Link></li>
-                    <li><Link to="/blogs" className={isActive('/blogs')} onClick={toggleMenu}>Blogs</Link></li>
+
                     <li><Link to="/contact" className={isActive('/contact')} onClick={toggleMenu}>Contact Us</Link></li>
                     <li className="mobile-theme-toggle"><ThemeToggle /></li>
                 </ul>
