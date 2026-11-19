@@ -1,16 +1,53 @@
-# React + Vite
+# BlueCheck Advisory
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite marketing site for an advisory practice, with Home, About, Services, Blogs and Contact pages, theme support, and animated/interactive page backgrounds. Frontend only — this repo contains no backend or API.
 
-Currently, two official plugins are available:
+## Pages
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `/` — Home
+- `/about` — About
+- `/services` — Services
+- `/blogs` — Blogs
+- `/contact` — Contact
 
-## React Compiler
+Shared UI includes a navbar, footer, theme toggle (`ThemeContext`), an interactive particle background, and tilt cards.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
 
-## Expanding the ESLint configuration
+- React 19, React DOM 19, React Router 7
+- Vite (rolldown-vite) with `@vitejs/plugin-react`
+- Framer Motion for animation, Lucide React for icons
+- Plain CSS per page/component (no CSS framework)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting started
+
+Prerequisites: Node.js and npm.
+
+```bash
+git clone https://github.com/AnujDubeyy/bluecheck-advisory.git
+cd bluecheck-advisory
+npm install
+npm run dev
+```
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Vite dev server |
+| `npm run build` | Production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+
+## Project structure
+
+```
+bluecheck-advisory/
+├── index.html
+├── vite.config.js
+├── eslint.config.js
+└── src/
+    ├── main.jsx             # Entry point
+    ├── App.jsx              # Router, navbar/footer, theme provider
+    ├── pages/               # Home, About, Services, Blogs, Contact (+ CSS)
+    ├── components/          # Navbar, Footer, ThemeToggle, InteractiveBackground, ParticleNetwork, TiltCard
+    └── context/             # ThemeContext
+```
